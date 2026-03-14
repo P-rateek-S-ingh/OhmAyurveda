@@ -1,0 +1,28 @@
+.mandala {
+  position: absolute;
+  width: min(92vw, 740px);
+  height: min(92vw, 740px);
+  opacity: 0.065;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: mspin 100s linear infinite;
+  pointer-events: none;
+}
+
+.mandala2 {
+  position: absolute;
+  width: min(50vw, 380px);
+  height: min(50vw, 380px);
+  opacity: 0.04;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: mspin2 60s linear infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes mspin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes mspin2 {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

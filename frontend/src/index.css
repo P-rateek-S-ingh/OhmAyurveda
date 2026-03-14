@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap');
+
+:root {
+  --parchment:    #E8D5A3;
+  --parchment-dk: #D4BC82;
+  --parchment-lt: #F5EDD4;
+  --aged:         #C9A96E;
+  --ink-dk:       #1C1008;
+  --ink:          #2E1A06;
+  --ink-lt:       #5C3A18;
+  --copper:       #A0522D;
+  --rust:         #8B3A1A;
+  --saffron:      #C8651B;
+  --turmeric:     #C9922A;
+  --gold:         #B8860B;
+  --gold-lt:      #D4A017;
+  --green-deep:   #2C4A2E;
+  --green-mid:    #4A6741;
+  --border-aged:  rgba(160,82,45,0.35);
+  --shadow:       rgba(28,16,8,0.4);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--ink-dk);
+  color: var(--parchment);
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #080402; }
+::-webkit-scrollbar-thumb { background: rgba(184,134,11,0.28); border-radius: 3px; }
+
+/* PALM LEAF LINES */
+.palm-lines {
+  position: relative;
+}
+.palm-lines::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px, transparent 40px,
+    rgba(160,82,45,0.035) 40px, rgba(160,82,45,0.035) 41px
+  );
+  z-index: 0;
+}
+
+/* STRIPE BORDER */
+.stripe-top::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--copper) 0px, var(--copper) 5px,
+    var(--gold) 5px, var(--gold) 10px,
+    var(--rust) 10px, var(--rust) 15px,
+    var(--turmeric) 15px, var(--turmeric) 20px
+  );
+}
+.stripe-bottom::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--copper) 0px, var(--copper) 5px,
+    var(--gold) 5px, var(--gold) 10px,
+    var(--rust) 10px, var(--rust) 15px,
+    var(--turmeric) 15px, var(--turmeric) 20px
+  );
+}
+
+/* SPINNER */
+.spinner {
+  width: 42px; height: 42px;
+  border: 2px solid rgba(160,82,45,0.2);
+  border-top-color: var(--copper);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* FADE UP ANIMATION */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease both; }
+.fade-up-1 { animation: fadeUp 1.2s ease 0.1s both; }
+.fade-up-2 { animation: fadeUp 1.2s ease 0.25s both; }
+.fade-up-3 { animation: fadeUp 1.2s ease 0.4s both; }
+.fade-up-4 { animation: fadeUp 1.2s ease 0.55s both; }
+
+/* SECTION HEADER */
+.sec-header { text-align: center; margin-bottom: 3.5rem; }
+.sec-deva {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 0.9rem; color: var(--gold);
+  letter-spacing: 0.3em; display: block;
+  margin-bottom: 0.55rem; opacity: 0.72;
+}
+.sec-title {
+  font-family: 'Philosopher', serif;
+  font-size: clamp(1.9rem, 4vw, 3.1rem);
+  font-weight: 700; color: var(--parchment-lt);
+  line-height: 1.15;
+  text-shadow: 0 2px 18px rgba(160,82,45,0.25);
+}
+.sec-title em { color: var(--gold); font-style: italic; }
+.sec-rule {
+  width: 90px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1rem auto 0;
+}
+
+/* ORNAMENT */
+.ornament-sep {
+  text-align: center; padding: 2rem 0;
+  color: var(--gold); font-size: 1.05rem;
+  opacity: 0.38; letter-spacing: 0.5rem;
+  user-select: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  body { font-size: 15px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 14px; }
+}

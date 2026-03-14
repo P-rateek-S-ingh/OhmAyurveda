@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: vaidya-backend
+    restart: unless-stopped
+    environment:
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+    ports:
+      - "8000:8000"
+    networks:
+      - vaidya-net
+
+  frontend:
+    build: ./frontend
+    container_name: vaidya-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - vaidya-net
+
+networks:
+  vaidya-net:
+    driver: bridge

@@ -1,0 +1,289 @@
+.section {
+  padding: 5rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Intro ── */
+.intro {
+  text-align: center;
+  margin-top: 3rem;
+}
+.introText {
+  font-size: 1rem;
+  color: rgba(232,213,163,0.6);
+  line-height: 1.9;
+  max-width: 580px;
+  margin: 0 auto 2rem;
+  font-style: italic;
+}
+.startBtn {
+  background: linear-gradient(135deg, var(--copper), var(--rust));
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 3px;
+  color: var(--parchment-lt);
+  font-family: 'Philosopher', serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 24px rgba(160,82,45,0.3);
+}
+.startBtn:hover {
+  background: linear-gradient(135deg, var(--rust), #5C1E08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(160,82,45,0.4);
+}
+
+/* ── Quiz ── */
+.quizWrap {
+  margin-top: 3rem;
+}
+.progressWrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(184,134,11,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--copper), var(--gold));
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.progressLabel {
+  font-size: 0.8rem;
+  color: rgba(184,134,11,0.5);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  font-family: 'EB Garamond', serif;
+}
+
+.questionCard {
+  background: rgba(22,12,4,0.7);
+  border: 1px solid rgba(184,134,11,0.22);
+  border-radius: 3px;
+  padding: 2.5rem;
+  position: relative;
+}
+.questionCard::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--copper), var(--gold), var(--copper));
+}
+
+.qNum {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 0.8rem;
+  font-family: 'EB Garamond', serif;
+}
+.qText {
+  font-family: 'Philosopher', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--parchment-lt);
+  margin-bottom: 1.8rem;
+  line-height: 1.4;
+}
+
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.opt {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(184,134,11,0.2);
+  border-radius: 3px;
+  padding: 1rem 1.4rem;
+  text-align: left;
+  color: rgba(232,213,163,0.7);
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.opt:hover {
+  background: rgba(160,82,45,0.12);
+  border-color: rgba(184,134,11,0.5);
+  color: var(--parchment-lt);
+  transform: translateX(4px);
+}
+.optDot {
+  color: var(--gold);
+  opacity: 0.5;
+  font-size: 0.6rem;
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}
+
+/* ── Result ── */
+.resultWrap {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.resultCard {
+  background: rgba(22,12,4,0.7);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-radius: 3px;
+  padding: 2.8rem 2.5rem;
+  max-width: 680px;
+  width: 100%;
+  position: relative;
+  animation: fadeUp 0.6s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.resultCard::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: repeating-linear-gradient(90deg,
+    var(--copper) 0px, var(--copper) 5px,
+    var(--gold)   5px, var(--gold)   10px,
+    var(--rust)   10px, var(--rust)  15px
+  );
+  border-radius: 3px 3px 0 0;
+}
+
+.resultGlyph {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.resultName {
+  font-family: 'Philosopher', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment-lt);
+  margin-bottom: 0.2rem;
+}
+.resultElements {
+  font-size: 0.76rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Score bars */
+.scoreRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.scoreItem {
+  display: grid;
+  grid-template-columns: 60px 1fr 32px;
+  align-items: center;
+  gap: 0.8rem;
+}
+.scoreLabel {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  color: rgba(232,213,163,0.6);
+}
+.scoreBar {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.scoreFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s ease;
+}
+.scoreNum {
+  font-size: 0.78rem;
+  color: rgba(184,134,11,0.5);
+  text-align: right;
+  font-family: 'EB Garamond', serif;
+}
+
+.resultDesc {
+  font-style: italic;
+  color: rgba(232,213,163,0.65);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--copper);
+  padding-left: 1rem;
+  background: rgba(160,82,45,0.05);
+  padding: 0.7rem 1rem;
+}
+
+.resultSection { margin-bottom: 1.2rem; }
+.resultSubLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+  font-family: 'EB Garamond', serif;
+}
+.balanceList {
+  padding-left: 1.1rem;
+}
+.balanceList li {
+  font-size: 0.88rem;
+  color: rgba(232,213,163,0.55);
+  line-height: 1.75;
+  margin-bottom: 0.3rem;
+}
+
+.avoidBox {
+  background: rgba(139,58,26,0.1);
+  border-left: 3px solid var(--rust);
+  border-radius: 2px;
+  padding: 0.7rem 1rem;
+  font-size: 0.87rem;
+  color: rgba(232,213,163,0.55);
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+.avoidLabel {
+  color: var(--rust);
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  margin-right: 0.4rem;
+}
+
+.resetBtn {
+  background: transparent;
+  border: 1px solid rgba(184,134,11,0.35);
+  border-radius: 3px;
+  padding: 0.7rem 1.8rem;
+  color: rgba(184,134,11,0.7);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.resetBtn:hover {
+  background: rgba(184,134,11,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}

@@ -1,0 +1,42 @@
+.footer {
+  background: #080402;
+  padding: 3.5rem 2rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(184,134,11,0.12);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: repeating-linear-gradient(90deg,
+    transparent 0px, transparent 8px,
+    rgba(184,134,11,0.22) 8px, rgba(184,134,11,0.22) 16px
+  );
+}
+
+.om {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 2.4rem; color: var(--gold); opacity: 0.4;
+  margin-bottom: 0.4rem; display: block;
+}
+
+.logo {
+  font-family: 'Philosopher', serif;
+  font-size: 1.55rem; font-weight: 700;
+  color: var(--parchment-lt); opacity: 0.65;
+  margin-bottom: 0.9rem;
+}
+
+.rule {
+  width: 70px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,134,11,0.35), transparent);
+  margin: 1rem auto;
+}
+
+.text {
+  font-size: 0.83rem;
+  color: rgba(232,213,163,0.28);
+  max-width: 520px; margin: 0 auto;
+  line-height: 1.9; font-style: italic;
+}

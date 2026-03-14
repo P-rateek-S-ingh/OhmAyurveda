@@ -1,0 +1,140 @@
+.section {
+  max-width: 1000px;
+  margin: 2.8rem auto;
+  padding: 0 2rem;
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: var(--parchment-lt);
+  background-image: repeating-linear-gradient(
+    90deg, transparent 0, transparent 26px,
+    rgba(160,82,45,0.04) 26px, rgba(160,82,45,0.04) 27px
+  );
+  border: 1px solid var(--parchment-dk);
+  border-radius: 3px;
+  color: var(--ink);
+  padding: 2.8rem 3rem;
+  position: relative;
+  box-shadow: 0 16px 64px rgba(0,0,0,0.65);
+}
+
+.card::before, .card::after {
+  content: '';
+  position: absolute; left: 0; right: 0; height: 5px;
+  background: repeating-linear-gradient(90deg,
+    var(--copper) 0px, var(--copper) 5px,
+    var(--gold) 5px, var(--gold) 10px,
+    var(--rust) 10px, var(--rust) 15px,
+    var(--turmeric) 15px, var(--turmeric) 20px
+  );
+}
+.card::before { top: 0; border-radius: 3px 3px 0 0; }
+.card::after  { bottom: 0; border-radius: 0 0 3px 3px; }
+
+.corner {
+  position: absolute;
+  font-size: 1.3rem; color: var(--copper); opacity: 0.45; line-height: 1;
+}
+.tl { top: 13px; left: 12px; }
+.tr { top: 13px; right: 12px; transform: scaleX(-1); }
+.bl { bottom: 13px; left: 12px; transform: scaleY(-1); }
+.br { bottom: 13px; right: 12px; transform: scale(-1); }
+
+.loading {
+  text-align: center; padding: 3.5rem; color: var(--ink-lt);
+}
+.loadTitle {
+  font-family: 'Philosopher', serif;
+  font-size: 1.1rem; color: var(--copper); margin-bottom: 0.3rem;
+}
+.loadSub {
+  font-size: 0.8rem; color: var(--ink-lt); font-style: italic;
+}
+
+.error {
+  text-align: center; padding: 2rem;
+  color: var(--rust);
+  font-family: 'Philosopher', serif; font-size: 1rem;
+}
+
+.title {
+  font-family: 'Philosopher', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 0.25rem;
+}
+.title em { color: var(--rust); font-style: italic; }
+
+.meta {
+  font-size: 0.8rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--copper); margin-bottom: 1rem;
+}
+
+.overview {
+  font-size: 0.97rem; color: var(--ink-lt); line-height: 1.9;
+  border-left: 3px solid var(--copper);
+  padding: 0.8rem 1.2rem;
+  font-style: italic; margin-bottom: 1.5rem;
+  background: rgba(160,82,45,0.05);
+}
+
+.divider {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin: 1.4rem 0; color: var(--copper);
+  font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
+}
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; }
+.divider::before { background: linear-gradient(90deg, transparent, rgba(160,82,45,0.3)); }
+.divider::after  { background: linear-gradient(90deg, rgba(160,82,45,0.3), transparent); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem; margin-top: 1rem;
+}
+
+.block {
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(160,82,45,0.18);
+  border-radius: 2px; padding: 1.4rem 1.5rem;
+}
+.block ul { padding-left: 1.1rem; }
+.block li {
+  font-size: 0.87rem; color: var(--ink-lt);
+  line-height: 1.72; margin-bottom: 0.3rem;
+}
+.cure   { border-top: 3px solid var(--green-mid); }
+.diet   { border-top: 3px solid var(--turmeric); }
+.avoid  { border-top: 3px solid var(--rust); }
+.travel { border-top: 3px solid var(--copper); }
+
+.blockTitle {
+  font-family: 'Philosopher', serif;
+  font-size: 0.98rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 0.9rem;
+  display: flex; align-items: center; gap: 0.45rem;
+}
+
+.subLabel {
+  font-size: 0.76rem; color: var(--copper);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin: 0.75rem 0 0.35rem;
+  font-family: 'EB Garamond', serif;
+}
+
+.disclaimer {
+  margin-top: 1.6rem; font-size: 0.8rem;
+  color: var(--ink-lt); font-style: italic;
+  text-align: center;
+  border-top: 1px solid rgba(160,82,45,0.18);
+  padding-top: 1rem; opacity: 0.65;
+}
+
+@media (max-width: 640px) {
+  .card { padding: 2rem 1.4rem; }
+}

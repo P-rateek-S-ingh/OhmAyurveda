@@ -1,0 +1,155 @@
+.hero {
+  min-height: 100vh;
+  background: var(--ink-dk);
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%, rgba(160,82,45,0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 35% at 85% 85%, rgba(44,74,46,0.1) 0%, transparent 60%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 7rem 2rem 5rem;
+  position: relative; overflow: hidden; text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(180deg,
+    transparent 0px, transparent 40px,
+    rgba(160,82,45,0.035) 40px, rgba(160,82,45,0.035) 41px
+  );
+}
+
+.swm {
+  position: absolute;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: rgba(160,82,45,0.055);
+  white-space: nowrap; pointer-events: none;
+  user-select: none; line-height: 1;
+  font-size: clamp(5rem, 16vw, 11rem);
+}
+.swmLeft  { top: 12%; left: -1%; transform: rotate(-6deg); }
+.swmRight { bottom: 8%; right: -1%; transform: rotate(4deg); opacity: 0.04; }
+
+.devaTop {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 1rem; color: var(--gold);
+  letter-spacing: 0.3em; margin-bottom: 1.1rem; opacity: 0.8;
+}
+
+.ruleWrap {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin: 0 auto 1.3rem; width: 180px;
+}
+.ruleWrap::before, .ruleWrap::after {
+  content: ''; flex: 1; height: 1px;
+}
+.ruleWrap::before { background: linear-gradient(90deg, transparent, rgba(184,134,11,0.5)); }
+.ruleWrap::after  { background: linear-gradient(90deg, rgba(184,134,11,0.5), transparent); }
+.ruleDot { color: var(--gold); font-size: 0.55rem; }
+
+.title {
+  font-family: 'Philosopher', serif;
+  font-size: clamp(3rem, 8vw, 6.6rem);
+  font-weight: 700; line-height: 1.07;
+  color: var(--parchment-lt);
+  letter-spacing: 0.025em; margin-bottom: 0.5rem;
+  text-shadow: 0 2px 32px rgba(160,82,45,0.28);
+}
+
+.titleDeva {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+  color: var(--gold); display: block;
+  font-weight: 400; letter-spacing: 0.1em; margin-top: 0.3rem;
+}
+
+.shloka {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 0.98rem; color: var(--aged);
+  max-width: 560px; line-height: 2.1;
+  margin: 1.7rem auto 0.3rem;
+  border-top: 1px solid rgba(184,134,11,0.18);
+  border-bottom: 1px solid rgba(184,134,11,0.18);
+  padding: 0.85rem 1.4rem;
+}
+
+.shlokaSource {
+  font-size: 0.76rem; color: rgba(232,213,163,0.35);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+/* SEARCH */
+.searchWrap { width: 100%; max-width: 700px; }
+
+.labelRow {
+  display: flex; align-items: center; gap: 0.8rem;
+  justify-content: center; margin-bottom: 0.9rem;
+}
+.labelLine {
+  flex: 1; max-width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,134,11,0.4));
+}
+.labelLineR {
+  background: linear-gradient(90deg, rgba(184,134,11,0.4), transparent);
+}
+.label {
+  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); font-family: 'EB Garamond', serif;
+}
+
+.searchBox {
+  display: flex;
+  background: rgba(18,8,2,0.75);
+  border: 1px solid rgba(184,134,11,0.38);
+  border-radius: 3px; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(184,134,11,0.08), 0 8px 48px rgba(0,0,0,0.6);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.searchBox:focus-within {
+  border-color: rgba(184,134,11,0.65);
+  box-shadow: inset 0 0 0 1px rgba(184,134,11,0.15), 0 8px 48px rgba(0,0,0,0.6), 0 0 20px rgba(184,134,11,0.1);
+}
+
+.searchBox input {
+  flex: 1; border: none; background: transparent;
+  padding: 1.1rem 1.6rem;
+  font-family: 'EB Garamond', serif; font-size: 1.05rem;
+  color: var(--parchment); outline: none;
+}
+.searchBox input::placeholder { color: rgba(200,165,100,0.38); font-style: italic; }
+
+.searchBox button {
+  background: linear-gradient(135deg, var(--copper), var(--rust));
+  border: none; padding: 0.72rem 1.7rem; margin: 0.38rem;
+  border-radius: 2px; color: var(--parchment-lt);
+  font-family: 'EB Garamond', serif; font-size: 1rem;
+  letter-spacing: 0.1em; cursor: pointer;
+  transition: all 0.3s; white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.searchBox button:hover {
+  background: linear-gradient(135deg, var(--rust), #5C1E08);
+  transform: translateY(-1px);
+}
+
+.tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  justify-content: center; margin-top: 1.1rem;
+}
+.tag {
+  background: transparent;
+  border: 1px solid rgba(184,134,11,0.25);
+  color: rgba(184,134,11,0.62); padding: 0.26rem 0.9rem;
+  border-radius: 2px;
+  font-family: 'EB Garamond', serif; font-size: 0.88rem;
+  cursor: pointer; transition: all 0.25s; letter-spacing: 0.06em;
+}
+.tag:hover {
+  background: rgba(184,134,11,0.12);
+  border-color: var(--gold); color: var(--gold);
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 6rem 1.2rem 4rem; }
+}
